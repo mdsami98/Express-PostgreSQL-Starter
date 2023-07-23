@@ -1,0 +1,49 @@
+version: '2.0'
+
+services:
+    #  connect application configuration
+
+    backend:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: backend
+        restart: unless-stopped
+        ports:
+            - 9000:9000
+        volumes:
+            - ./:/app
+        working_dir: /app
+        command: sh -c "yarn install &&  yarn start"
+        cap_add:
+            - ALL
+        user: root
+        environment:
+            - NODE_ENV=development
+            - PORT=9000
+            # - DB_HOST=b_db
+            # - DB_USER=root
+            # - DB_PASS=root123
+            # - DB_NAME=b_db
+
+    b-db:
+        image: postgres:14
+        container_name: b-db
+        restart: unless-stopped
+        mem_limit: 1g
+        environment:
+            POSTGRES_PASSWORD: root123
+            POSTGRES_DB: b-db
+            POSTGRES_USER: root
+        volumes:
+            - /var/lib/postgresql/b-db/data:/var/lib/postgresql/data
+
+    b-db-adminer:
+        image: adminer
+        container_name: b-db-adminer
+        restart: unless-stopped
+        links:
+            - b-db:db
+        ports:
+            - 9222:8080
+# End of Connect  application configuration

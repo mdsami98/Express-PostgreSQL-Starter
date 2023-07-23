@@ -1,0 +1,28 @@
+{
+    "name": "myboilerplate",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "cross-env NODE_ENV=development nodemon src/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "joi": "^17.9.2",
+        "nodemon": "^3.0.1",
+        "path": "^0.12.7",
+        "pg": "^8.11.1",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.32.1",
+        "uuid": "^9.0.0",
+        "xss-clean": "^0.1.4"
+    },
+    "devDependencies": {
+        "sequelize-cli": "^6.6.1"
+    }
+}
