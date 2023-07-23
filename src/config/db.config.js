@@ -2,7 +2,7 @@ const config = require('./config');
 
 module.exports = {
     host: config.dbHost,
-    // port: config.dbPort,
+    port: config.dbPort,
     username: config.dbUser,
     password: config.dbPassword,
     database: config.dbName,

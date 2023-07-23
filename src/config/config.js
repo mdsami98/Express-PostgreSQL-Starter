@@ -24,7 +24,7 @@ const configValidation = Joi.object()
             .default(10)
             .description('minutes after which verify email token expires'),
         DB_HOST: Joi.string().required(),
-        DB_PORT: Joi.number().required(),
+        DB_PORT: Joi.number().default(5432),
         DB_PASSWORD: Joi.string().required(),
         DB_USER: Joi.string().required(),
         DB_NAME: Joi.string().required()
