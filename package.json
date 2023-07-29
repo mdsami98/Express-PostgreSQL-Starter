@@ -39,6 +39,8 @@
         "@config": "src/config/",
         "@helper": "src/helper/",
         "@controllers": "src/controllers/",
-        "@utils": "src/utils/"
+        "@routes": "src/routes/",
+        "@utils": "src/utils/",
+        "@middlewares": "src/middlewares/"
     }
 }
