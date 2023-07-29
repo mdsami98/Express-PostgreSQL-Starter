@@ -18,6 +18,7 @@
         "express": "^4.18.2",
         "helmet": "^7.0.0",
         "http-errors": "^2.0.0",
+        "http-status": "^1.6.2",
         "joi": "^17.9.2",
         "module-alias": "^2.2.3",
         "nodemon": "^3.0.1",
@@ -34,8 +35,10 @@
     },
     "_moduleAliases": {
         "@root": ".",
-        "@src": "src/",
+        "@": "src/",
         "@config": "src/config/",
-        "@helper": "src/helper/"
+        "@helper": "src/helper/",
+        "@controllers": "src/controllers/",
+        "@utils": "src/utils/"
     }
 }

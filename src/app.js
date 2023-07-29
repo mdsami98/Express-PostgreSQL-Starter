@@ -7,6 +7,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const createHttpError = require('http-errors');
 const logger = require('@helper/logger');
+const routes = require('@/routes/v1/index');
 // {
 //     origin: '*',
 //     optionsSuccessStatus: 200,
@@ -35,13 +36,16 @@ app.use(helmet());
 // gzip compression
 app.use(compression());
 
-const db = require('@src/database/models');
+const db = require('@/database/models');
 
 app.get('/', async (req, res) => {
     console.log('Congratulations! API is working!');
     logger.info('System launch');
     res.status(200).send('Congratulations! API is working!');
 });
+
+// v1 api routes
+app.use('/v1', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -3,9 +3,11 @@
         "baseUrl": ".",
         "paths": {
             "@root/*": ["./*"],
-            "@src/*": ["src/*"],
+            "@/*": ["src/*"],
             "@config/*": ["src/config/*"],
-            "@helper/*": ["src/helper/*"]
+            "@helper/*": ["src/helper/*"],
+            "@controllers/*": ["src/controllers/*"],
+            "@utils/*": ["src/utils/*"]
         }
     },
     "exclude": ["node_modules"]
