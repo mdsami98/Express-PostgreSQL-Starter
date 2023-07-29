@@ -1,11 +1,12 @@
 const express = require('express');
 const xss = require('xss-clean');
-const config = require('./config/config');
+const config = require('@config/config');
 const cors = require('cors');
 const createError = require('http-errors');
 const compression = require('compression');
 const helmet = require('helmet');
-
+const createHttpError = require('http-errors');
+const logger = require('@helper/logger');
 // {
 //     origin: '*',
 //     optionsSuccessStatus: 200,
@@ -34,9 +35,8 @@ app.use(helmet());
 // gzip compression
 app.use(compression());
 
-const db = require('./database/models');
-const createHttpError = require('http-errors');
-const logger = require('./helper/logger');
+const db = require('@src/database/models');
+
 app.get('/', async (req, res) => {
     console.log('Congratulations! API is working!');
     logger.info('System launch');
