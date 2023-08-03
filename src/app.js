@@ -37,6 +37,7 @@ app.use(helmet());
 app.use(compression());
 
 const db = require('@/database/models');
+const ApiError = require('./utils/ApiError');
 
 app.get('/', async (req, res) => {
     console.log('Congratulations! API is working!');
@@ -49,7 +50,7 @@ app.use('/v1', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    next(createError(404));
+    next(new ApiError(404, 'Not Found'));
 });
 
 const server = app.listen(config.port, () => {
